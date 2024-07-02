@@ -14,6 +14,57 @@
   )
 
 
+  (sheet (at 139.7 76.2) (size 25.4 12.7)
+    (stroke (width 0.1524) (type solid))
+    (fill (color 0 0 0 0.0000))
+    (uuid 19593465-3760-482e-82bf-cb43b444c11c)
+    (property "Sheetname" "Headers" (at 139.7 90.17 0)
+      (effects (font (size 1.27 1.27)) (justify left top))
+    )
+    (property "Sheetfile" "Headers.kicad_sch" (at 139.7 89.4846 0)
+      (effects (font (size 1.27 1.27)) (justify left top) hide)
+    )
+    (instances
+      (project "iCE40DevBoard"
+        (path "/2f10ad52-4a2c-425a-8339-df6126e31315" (page "5"))
+      )
+    )
+  )
+
+  (sheet (at 76.2 50.8) (size 25.4 12.7) (fields_autoplaced)
+    (stroke (width 0.1524) (type solid))
+    (fill (color 0 0 0 0.0000))
+    (uuid 638b097a-85e5-4af1-b4c6-c77a407aaed3)
+    (property "Sheetname" "Power Supply" (at 76.2 50.0884 0)
+      (effects (font (size 1.27 1.27)) (justify left bottom))
+    )
+    (property "Sheetfile" "PowerSupply.kicad_sch" (at 76.2 64.0846 0)
+      (effects (font (size 1.27 1.27)) (justify left top) hide)
+    )
+    (instances
+      (project "iCE40DevBoard"
+        (path "/2f10ad52-4a2c-425a-8339-df6126e31315" (page "2"))
+      )
+    )
+  )
+
+  (sheet (at 139.7 50.8) (size 25.4 12.7) (fields_autoplaced)
+    (stroke (width 0.1524) (type solid))
+    (fill (color 0 0 0 0.0000))
+    (uuid bb86ed21-cf66-42fc-a22b-eac1a192ec1e)
+    (property "Sheetname" "FPGA" (at 139.7 50.0884 0)
+      (effects (font (size 1.27 1.27)) (justify left bottom))
+    )
+    (property "Sheetfile" "FPGA.kicad_sch" (at 139.7 64.0846 0)
+      (effects (font (size 1.27 1.27)) (justify left top) hide)
+    )
+    (instances
+      (project "iCE40DevBoard"
+        (path "/2f10ad52-4a2c-425a-8339-df6126e31315" (page "3"))
+      )
+    )
+  )
+
   (sheet_instances
     (path "/" (page "1"))
   )

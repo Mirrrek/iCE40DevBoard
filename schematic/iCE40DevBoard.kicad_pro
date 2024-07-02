@@ -326,6 +326,18 @@
     [
       "2f10ad52-4a2c-425a-8339-df6126e31315",
       ""
+    ],
+    [
+      "638b097a-85e5-4af1-b4c6-c77a407aaed3",
+      "Power Supply"
+    ],
+    [
+      "bb86ed21-cf66-42fc-a22b-eac1a192ec1e",
+      "FPGA"
+    ],
+    [
+      "19593465-3760-482e-82bf-cb43b444c11c",
+      "Headers"
     ]
   ],
   "text_variables": {}
