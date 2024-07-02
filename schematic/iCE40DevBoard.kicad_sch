@@ -283,7 +283,7 @@
     )
     (instances
       (project "iCE40DevBoard"
-        (path "/2f10ad52-4a2c-425a-8339-df6126e31315" (page "5"))
+        (path "/2f10ad52-4a2c-425a-8339-df6126e31315" (page "4"))
       )
     )
   )
