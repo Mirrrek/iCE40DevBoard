@@ -1,0 +1,12 @@
+{
+    "folders": [
+        {
+            "name": "Schematic",
+            "path": "schematic"
+        },
+        {
+            "name": "Flasher",
+            "path": "flasher"
+        }
+    ]
+}

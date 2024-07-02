@@ -1,0 +1,20 @@
+(kicad_sch (version 20230121) (generator eeschema)
+
+  (uuid 2f10ad52-4a2c-425a-8339-df6126e31315)
+
+  (paper "A4")
+
+  (title_block
+    (title "iCE40 DevBoard")
+    (date "July 2024")
+    (rev "v1")
+  )
+
+  (lib_symbols
+  )
+
+
+  (sheet_instances
+    (path "/" (page "1"))
+  )
+)
