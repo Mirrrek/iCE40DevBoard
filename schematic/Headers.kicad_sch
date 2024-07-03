@@ -430,12 +430,12 @@
   )
 
   (symbol (lib_id "Connector_Generic:Conn_01x16") (at 182.88 93.98 0) (unit 1)
-    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (in_bom yes) (on_board yes) (dnp no)
     (uuid 68c4f443-d5e6-4423-aecb-d73089eadece)
-    (property "Reference" "J5" (at 185.42 94.615 0)
+    (property "Reference" "J4" (at 185.42 95.25 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Value" "Header 2" (at 185.42 97.155 0)
+    (property "Value" "Header 2" (at 185.42 97.79 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x16_P2.54mm_Vertical" (at 182.88 93.98 0)
@@ -463,19 +463,19 @@
     (instances
       (project "iCE40DevBoard"
         (path "/2f10ad52-4a2c-425a-8339-df6126e31315/19593465-3760-482e-82bf-cb43b444c11c"
-          (reference "J5") (unit 1)
+          (reference "J4") (unit 1)
         )
       )
     )
   )
 
   (symbol (lib_id "Connector_Generic:Conn_01x16") (at 121.92 93.98 0) (mirror y) (unit 1)
-    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (in_bom yes) (on_board yes) (dnp no)
     (uuid fc59362e-4793-453c-8720-f24b1044fcc5)
-    (property "Reference" "J4" (at 119.38 94.615 0)
+    (property "Reference" "J3" (at 119.38 95.25 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Value" "Header 1" (at 119.38 97.155 0)
+    (property "Value" "Header 1" (at 119.38 97.79 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x16_P2.54mm_Vertical" (at 121.92 93.98 0)
@@ -503,7 +503,7 @@
     (instances
       (project "iCE40DevBoard"
         (path "/2f10ad52-4a2c-425a-8339-df6126e31315/19593465-3760-482e-82bf-cb43b444c11c"
-          (reference "J4") (unit 1)
+          (reference "J3") (unit 1)
         )
       )
     )
