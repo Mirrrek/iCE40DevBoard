@@ -4,6 +4,8 @@ This project was made as part of [Hack Club Arcade 2024](https://hackclub.com/ar
 
 ## Hardware
 
+All required libraries can be downloaded from [SnapEDA](https://www.snapeda.com/home/).
+
 - **iCE5LP2K-SG48ITR** FPGA
 - **10118194-0011LF** USB micro connector
 - **AMS1117** 3.3V and 1.2V voltage regulators
