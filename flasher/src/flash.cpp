@@ -1,16 +1,14 @@
 #include "flash.hpp"
 #include "pins.hpp"
 #include <SPI.h>
-#include <exception>
 
-static std::function<void(bool)> _onStatusChange = [] (bool) {
-    };
+static void (*_onStatusChange)(bool) = 0;
 
 void onStatusChangeInterrupt() {
     _onStatusChange(digitalRead(PIN_CD) == HIGH);
 }
 
-void waitForReady() {
+bool waitForReady() {
     SPI.beginTransaction(SPISettings(1000000, MSBFIRST, SPI_MODE0));
     digitalWrite(PIN_CS, LOW);
     SPI.transfer(0x05);
@@ -18,13 +16,16 @@ void waitForReady() {
     while (status & 0b1) {
         status = SPI.transfer16(0);
         if (status & 0b100000) {
-            throw std::exception("Write/erase error");
+            digitalWrite(PIN_CS, HIGH);
+            SPI.endTransaction();
+            return false;
         }
         delayMicroseconds(1);
     }
     digitalWrite(PIN_CS, HIGH);
     SPI.endTransaction();
     delayMicroseconds(1);
+    return true;
 }
 
 void writeEnable() {
@@ -36,7 +37,7 @@ void writeEnable() {
     waitForReady();
 }
 
-void Flash::begin(std::function<void(bool)> onStatusChange) {
+void Flash::begin(void (*onStatusChange)(bool)) {
     _onStatusChange = onStatusChange;
     attachInterrupt(digitalPinToInterrupt(PIN_CD), onStatusChangeInterrupt, CHANGE);
     pinMode(PIN_SEL, OUTPUT);
@@ -71,7 +72,7 @@ void Flash::disable() {
     digitalWrite(PIN_CR, HIGH);
 }
 
-void Flash::writeChunk(uint16_t chunkAddress, uint8_t* data) {
+bool Flash::writeChunk(uint16_t chunkAddress, uint8_t* data) {
     writeEnable();
     SPI.beginTransaction(SPISettings(1000000, MSBFIRST, SPI_MODE0));
     digitalWrite(PIN_CS, LOW);
@@ -83,5 +84,5 @@ void Flash::writeChunk(uint16_t chunkAddress, uint8_t* data) {
     }
     digitalWrite(PIN_CS, HIGH);
     SPI.endTransaction();
-    waitForReady();
+    return waitForReady();
 }

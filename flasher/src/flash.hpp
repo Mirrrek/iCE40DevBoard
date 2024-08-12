@@ -2,14 +2,13 @@
 #define FLASH_HPP
 
 #include <Arduino.h>
-#include <functional>
 
 namespace Flash {
-    void begin(std::function<void(bool)> onStatusChange);
+    void begin(void (*onStatusChange)(bool));
     void end();
     void enable();
     void disable();
-    void writeChunk(uint16_t chunkAddress, uint8_t *data);
+    bool writeChunk(uint16_t chunkAddress, uint8_t *data);
 }
 
 #endif
