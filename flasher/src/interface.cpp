@@ -18,32 +18,46 @@ void Interface::update() {
         return;
     }
 
-    uint8_t message = Serial.peek();
-
-    switch (message) {
-    case START:
-        Serial.read();
+    switch (Serial.read()) {
+    case START: {
         _onInput(START, 0);
-        break;
-    case STOP:
-        Serial.read();
+    } break;
+    case STOP: {
         _onInput(STOP, 0);
-        break;
-    case WRITE:
-        if (Serial.available() < 1 + 2 + 256) {
-            return;
-        }
-        Serial.read();
+    } break;
+    case WRITE: {
         uint8_t data[2 + 256];
-        Serial.readBytes(data, 2 + 256);
+        uint16_t offset = 0;
+        while (offset < 2 + 256) {
+            if (!Serial.available()) {
+                continue;
+            }
+            offset += Serial.readBytes(data + offset, 2 + 256 - offset);
+        }
         _onInput(WRITE, data);
-        break;
-    default:
-        Serial.read();
+    } break;
+    case READ: {
+        uint8_t data[2];
+        uint16_t offset = 0;
+        while (offset < 2) {
+            if (!Serial.available()) {
+                continue;
+            }
+            offset += Serial.readBytes(data + offset, 2 - offset);
+        }
+        _onInput(READ, data);
+    } break;
+    default: {
         send(ERROR);
+    } break;
     }
 }
 
-void Interface::send(OutputMessage message) {
+void Interface::send(OutputMessage message, uint8_t* data) {
     Serial.write(message);
+    switch (message) {
+    case DATA:
+        Serial.write(data, 256);
+        break;
+    }
 }

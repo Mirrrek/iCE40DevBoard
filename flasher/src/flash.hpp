@@ -9,6 +9,7 @@ namespace Flash {
     void enable();
     void disable();
     bool writeChunk(uint16_t chunkAddress, uint8_t *data);
+    void readChunk(uint16_t chunkAddress, uint8_t *data);
 }
 
 #endif

@@ -7,7 +7,8 @@ namespace Interface {
     enum InputMessage {
         START,
         STOP,
-        WRITE
+        WRITE,
+        READ
     };
 
     enum OutputMessage {
@@ -15,13 +16,14 @@ namespace Interface {
         CONFIGURING,
         CONFIGURED,
         ERROR,
-        OK
+        OK,
+        DATA
     };
 
     void begin(uint32_t baudrate, void (*onInput)(InputMessage, uint8_t*));
     void end();
     void update();
-    void send(OutputMessage message);
+    void send(OutputMessage message, uint8_t* data = 0);
 };
 
 #endif

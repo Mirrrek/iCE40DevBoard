@@ -87,3 +87,17 @@ bool Flash::writeChunk(uint16_t chunkAddress, uint8_t* data) {
     SPI.endTransaction();
     return waitForReady();
 }
+
+void Flash::readChunk(uint16_t chunkAddress, uint8_t* data) {
+    SPI.beginTransaction(SPISettings(1000000, MSBFIRST, SPI_MODE0));
+    digitalWrite(PIN_CS, LOW);
+    SPI.transfer(0x03);
+    SPI.transfer((chunkAddress >> 8) & 0xff);
+    SPI.transfer(chunkAddress & 0xff);
+    SPI.transfer(0);
+    for (int i = 0; i < 256; i++) {
+        data[i] = SPI.transfer(0);
+    }
+    digitalWrite(PIN_CS, HIGH);
+    SPI.endTransaction();
+}
