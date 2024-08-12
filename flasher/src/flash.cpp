@@ -79,6 +79,7 @@ bool Flash::writeChunk(uint16_t chunkAddress, uint8_t* data) {
     SPI.transfer(0x02);
     SPI.transfer((chunkAddress >> 8) & 0xff);
     SPI.transfer(chunkAddress & 0xff);
+    SPI.transfer(0);
     for (int i = 0; i < 256; i++) {
         SPI.transfer(data[i]);
     }
